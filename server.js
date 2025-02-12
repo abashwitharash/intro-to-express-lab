@@ -71,8 +71,12 @@ app.get('/shoes', (req, res) => {
             filteredContent.push(element);
         }
     }
-
-    res.send(filteredContent.length ? filteredContent : shoes);
+    if (filteredContent.length > 0) {
+        res.send(filteredContent);
+    } else {
+        res.send("no shoes for you");
+    }
+   
 });
 
 
